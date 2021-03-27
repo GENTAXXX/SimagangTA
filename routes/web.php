@@ -23,3 +23,7 @@ Route::get('lowongan/{id}', [LowonganController::class, 'show']);
 Route::post('lowongan', [LowonganController::class, 'store']);
 Route::put('lowongan/{id}', [LowonganController::class, 'update']);
 Route::delete('lowongan/{id}', [LowonganController::class, 'destroy']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

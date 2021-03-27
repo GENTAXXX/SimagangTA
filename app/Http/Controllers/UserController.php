@@ -22,7 +22,8 @@ class UserController extends Controller
             $data['code'] = 500;
             $data['result'] = 'Error';
         }
-        return view('user.index');
+        return response($data);
+        // return view('user.index');
     }
 
     /**
@@ -44,8 +45,8 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
             'role_id' => 'required',
+            'name' => 'required',
             'email' => 'required',
             'password' => 'required',
         ]);
@@ -104,8 +105,8 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'name' => 'required',
             'role_id' => 'required',
+            'name' => 'required',
             'email' => 'required',
             'password' => 'required',
         ]);
